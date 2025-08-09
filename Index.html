@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1024">
+<title>Free Fire Max Tournament - Elite Gaming Championship</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FF6B35',
+secondary: '#1A1A2E'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px','3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+    div#step3 {
+    display: none;
+}
+    header#ms1 {
+    background-color: black;
+}
+    .f4{    max-width: 62rem;}
+     #msa4 {
+    margin-top: 14px;
+}
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+.hero-bg {
+background-image: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(255, 107, 53, 0.6)), url('https://readdy.ai/api/search-image?query=intense%20gaming%20battle%20scene%20with%20futuristic%20weapons%20and%20characters%20in%20action%2C%20dynamic%20lighting%20effects%2C%20cyberpunk%20aesthetic%2C%20orange%20and%20blue%20color%20scheme%2C%20high%20energy%20combat%20atmosphere%2C%20digital%20arena%20background%2C%20professional%20esports%20tournament%20setting&width=1920&height=600&seq=hero1&orientation=landscape');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+.bracket-card {
+transition: all 0.3s ease;
+}
+.bracket-card:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
+}
+.live-indicator {
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.5; }
+}
+.countdown-digit {
+background: linear-gradient(135deg, #FF6B35, #FF8A65);
+animation: flip 1s ease-in-out;
+}
+@keyframes flip {
+0% { transform: rotateY(0); }
+50% { transform: rotateY(90deg); }
+100% { transform: rotateY(0); }
+}
+.notification-badge {
+animation: bounce 2s infinite;
+}
+.team-card {
+background: linear-gradient(145deg, #ffffff, #f8f9fa);
+border: 1px solid rgba(255, 107, 53, 0.1);
+}
+}
+#ms1{--tw-bg-opacity: 1;
+    background-color: black;}
+    .hscreen{height: 59vh;}
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+<!-- Header -->
+<header id="ms1" class="sticky top-0 z-50 bg-secondary shadow-lg">
+<div class="max-w-7xl mx-auto px-4">
+<div class="flex items-center justify-between h-16">
+<!-- Logo -->
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 flex items-center justify-center">
+<img src="https://i.pinimg.com/736x/53/70/b9/5370b9568d2b25fd603a6221ac6d48b9.jpg">
+</div>
+<span class=" text-xl text-white">Free Fire Max</span>
+</div>
+<!-- Navigation -->
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-white hover:text-primary transition-colors flex items-center space-x-1">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-home-line text-sm"></i>
+</div>
+<span>Home</span>
+</a>
+<div class="relative group">
+<button class="text-white hover:text-primary transition-colors flex items-center space-x-1">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-trophy-line text-sm"></i>
+</div>
+<span>Tournaments</span>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-arrow-down-s-line text-sm"></i>
+</div>
+</button>
+<div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+<a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50">Active Tournaments</a>
+<a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50">Upcoming Events</a>
+<a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50">Past Results</a>
+</div>
+</div>
+<a href="#" class="text-white hover:text-primary transition-colors flex items-center space-x-1">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-team-line text-sm"></i>
+</div>
+<span>Teams</span>
+</a>
+<a href="#" class="text-white hover:text-primary transition-colors flex items-center space-x-1">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-bar-chart-line text-sm"></i>
+</div>
+<span>Rankings</span>
+</a>
+<a href="#" class="text-white hover:text-primary transition-colors flex items-center space-x-1">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-calendar-line text-sm"></i>
+</div>
+<span>Schedule</span>
+</a>
+</nav>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-bg hscreen flex items-center">
+<div class="w-full max-w-7xl mx-auto px-4">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="text-white">
+<h1 class="text-5xl font-bold mb-6 leading-tight"> Gaming Championship 2025</h1>
+<div class="space-y-4 mb-8">
+<div class="flex items-center space-x-3">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-money-dollar-circle-line text-primary"></i>
+</div>
+<span class="text-lg">Entry fee:₹50</span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-money-dollar-circle-line text-primary"></i>
+</div>
+<span class="text-lg">Prize Pool:₹300</span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-team-line text-primary"></i>
+</div>
+<span class="text-lg">128 Teams | 98 Slots Remaining</span>
+</div>
+</div>
+<a href="#rgsection">
+<button class="bg-primary hover:bg-orange-600 text-white px-8 py-4 !rounded-button text-lg font-semibold transition-all transform hover:scale-105 whitespace-nowrap">
+Register Your Team Now
+</button></a>
+</div>
+<div class="text-center text-white">
+<div class="mb-8">
+<h3 class="text-2xl font-bold mb-4">Winnning price</h3>
+<div class="flex justify-center space-x-4">
+<div class="countdown-digit text-center p-4 rounded-lg min-w-16">
+<div class="text-3xl font-bold">₹</div>
+</div>
+<div class="countdown-digit text-center p-4 rounded-lg min-w-16">
+<div class="text-3xl font-bold">3</div>
+</div>
+<div class="countdown-digit text-center p-4 rounded-lg min-w-16">
+<div class="text-3xl font-bold">0</div>
+</div>
+<div class="countdown-digit text-center p-4 rounded-lg min-w-16">
+<div class="text-3xl font-bold">0</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center space-x-6 mb-6">
+<div class="flex items-center space-x-2">
+<div class="w-3 h-3 bg-red-500 rounded-full live-indicator"></div>
+<span>24,567 Viewers</span>
+</div>
+</div>
+<div class="flex justify-center space-x-4">
+<button class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all">
+<i class="ri-facebook-fill text-white"></i>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all">
+<i class="ri-twitter-fill text-white"></i>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all">
+<i class="ri-youtube-fill text-white"></i>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all">
+<i class="ri-discord-fill text-white"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Registration Section -->
+<section id="rgsection" class="py-16 bg-gradient-to-br from-primary to-orange-600">
+<div class="f4 mx-auto px-4">
+<div class="text-center text-white mb-12">
+<h2 class="text-4xl font-bold mb-4">Register Your Team</h2>
+<p class="text-xl opacity-90">Join the ultimate Free Fire Max championship</p>
+</div>
+<div class="bg-white rounded-2xl shadow-2xl p-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div id="step1Indicator" class="flex items-center space-x-3 p-4 bg-primary bg-opacity-10 rounded-lg">
+<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+<span class="text-white font-bold text-sm">1</span>
+</div>
+<span class="font-semibold text-primary">Team Info</span>
+</div>
+<div id="step2Indicator" class="flex items-center space-x-3 p-4 bg-gray-100 rounded-lg">
+<div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
+<span class="text-white font-bold text-sm">2</span>
+</div>
+<span class="text-gray-600">Players</span>
+</div>
+<div id="step3Indicator" class=" hidden flex items-center space-x-3 p-4 bg-gray-100 rounded-lg">
+<div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
+<span class="text-white font-bold text-sm">3</span>
+</div>
+<span class="text-gray-600">Documents</span>
+</div>
+<div id="step4Indicator" class="flex items-center space-x-3 p-4 bg-gray-100 rounded-lg">
+<div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
+<span class="text-white font-bold text-sm">3</span>
+</div>
+<span class="text-gray-600">Payment</span>
+</div>
+</div>
+<form id="registrationForm" class="space-y-6">
+<div id="step1" class="registration-step">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Team Name *</label>
+<input type="text" name="teamName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your team name">
+</div>
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">UID *</label>
+<input type="number" name="teamUID" required="" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your UID">
+</div>
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Team Captain *</label>
+<input type="text" name="captain" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Captain's IGN">
+</div>
+</div>
+<div class="space-y-4">
+<label id="msa4" class="block text-sm font-semibold text-gray-700 mb-2">Game Mode Selection *</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-primary transition-colors">
+<input type="radio" name="gameMode" value="br" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary">
+<div class="ml-3">
+<div class="font-medium">Battle Royale</div>
+<div class="text-sm text-gray-500">Classic BR Experience</div>
+</div>
+</label>
+<label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-primary transition-colors">
+<input type="radio" name="gameMode" value="br" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary">
+<div class="ml-3">
+<div class="font-medium">Br</div>
+<div class="text-sm text-gray-500">Classic BR Experience</div>
+</div>
+</label>
+<label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-primary transition-colors">
+<input type="radio" name="gameMode" value="cs" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary">
+<div class="ml-3">
+<div class="font-medium">Clash Squad</div>
+<div class="text-sm text-gray-500">4v4 Team Combat</div>
+</div>
+</label>
+<label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-primary transition-colors">
+<input type="radio" name="gameMode" value="cs" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary">
+<div class="ml-3">
+<div class="font-medium">Cs</div>
+<div class="text-sm text-gray-500">4v4 Team Combat</div>
+</div>
+</label>
+<label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-primary transition-colors">
+<input type="radio" name="gameMode" value="bermuda" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary">
+<div class="ml-3">
+<div class="font-medium">Bermuda Triangle</div>
+<div class="text-sm text-gray-500">Special Map Mode</div>
+</div>
+</label>
+<label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-primary transition-colors">
+<input type="radio" name="gameMode" value="custom" class="w-5 h-5 text-primary border-gray-300 focus:ring-primary">
+<div class="ml-3">
+<div class="font-medium">Custom Room</div>
+<div class="text-sm text-gray-500">Private Matches</div>
+</div>
+</label>
+</div>
+<div class="text-sm text-gray-500 mt-2">Select one game mode to participate in</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label id="msa4" class="block text-sm font-semibold text-gray-700 mb-2">Contact Email *</label>
+<input type="email" name="contactEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="team@example.com">
+</div>
+<div>
+<label id="msa4" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+<input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+1 (555) 123-4567">
+</div>
+</div>
+<div>
+<label id="msa4" class="block text-sm font-semibold text-gray-700 mb-2">Team Description</label>
+<textarea rows="4" name="teamDescription" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tell us about your team..."></textarea>
+</div>
+<div class="flex items-center space-x-3">
+<input type="checkbox" id="terms" class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+<label for="terms" class="text-sm text-gray-700">I agree to the <a href="#" class="text-primary hover:underline">Terms and Conditions</a> and <a href="#" class="text-primary hover:underline">Tournament Rules</a></label>
+</div>
+<div id="msa4" class="flex justify-between">
+<button type="button" class="px-6 py-3 border border-gray-300 text-gray-700 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+Save Draft
+</button>
+<button type="button" id="nextToPlayers" class="px-8 py-3 bg-primary hover:bg-orange-600 text-white !rounded-button transition-colors whitespace-nowrap">
+Continue to Player Details
+</button>
+</div>
+</div>
+<!-- Player Details Step -->
+<div id="step2" class="registration-step hidden">
+<h3 class="text-xl font-bold mb-6">Player Details</h3>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player 1 (Captain) *</label>
+<input type="text" name="player1" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="In-game Name">
+</div>
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player 1 Role *</label>
+<select name="player1Role" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+<option value="">Select Role</option>
+<option value="Captain">Captain</option>
+<option value="Assault">Assault</option>
+<option value="Support">Support</option>
+<option value="Sniper">Sniper</option>
+</select>
+</div>
+</div>
+<!-- Add more players -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player 2 *</label>
+<input type="text" name="player2" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="In-game Name">
+</div>
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player 2 Role *</label>
+<select name="player2Role" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+<option value="">Select Role</option>
+<option value="Assault">Assault</option>
+<option value="Support">Support</option>
+<option value="Sniper">Sniper</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player 3 *</label>
+<input type="text" name="player3" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="In-game Name">
+</div>
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player 3 Role *</label>
+<select name="player3Role" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+<option value="">Select Role</option>
+<option value="Assault">Assault</option>
+<option value="Support">Support</option>
+<option value="Sniper">Sniper</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player 4 *</label>
+<input type="text" name="player4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="In-game Name">
+</div>
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player 4 Role *</label>
+<select name="player4Role" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+<option value="">Select Role</option>
+<option value="Assault">Assault</option>
+<option value="Support">Support</option>
+<option value="Sniper">Sniper</option>
+</select>
+</div>
+</div>
+<div class="flex justify-between mt-8">
+<button type="button" id="backToTeam" class="px-6 py-3 border border-gray-300 text-gray-700 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+Back
+</button>
+<button type="button" id="nextToPayment" class="px-8 py-3 bg-primary hover:bg-orange-600 text-white !rounded-button transition-colors whitespace-nowrap">
+Continue to Documents
+</button>
+</div>
+</div>
+</div>
+<!-- Documents Step -->
+<div id="step3" class="registration-step hidden">
+<h3 class="text-xl font-bold mb-6">Required Documents</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Team Logo *</label>
+<div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+<input type="file" name="teamLogo" accept="image/*" class="hidden" id="teamLogoInput">
+<label for="teamLogoInput" class="cursor-pointer">
+<div class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-lg mx-auto mb-4">
+<i class="ri-upload-line text-gray-500 text-xl"></i>
+</div>
+<p class="text-gray-600">Drop your team logo here or <span class="text-primary font-semibold">browse files</span></p>
+<p class="text-xs text-gray-500 mt-2">PNG, JPG up to 2MB</p>
+</label>
+</div>
+<div id="teamLogoPreview" class="hidden mt-4">
+<div class="flex items-center space-x-4">
+<div class="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden">
+<img src="" alt="Team Logo Preview" class="w-full h-full object-cover">
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium file-name"></p>
+<p class="text-xs text-gray-500 file-size"></p>
+</div>
+<button type="button" class="text-red-500 hover:text-red-600" onclick="removeFile('teamLogo')">
+<i class="ri-delete-bin-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-gray-700 mb-2">Player IDs (All Players) *</label>
+<div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+<input type="file" name="playerIds" accept=".pdf,.jpg,.png" multiple class="hidden" id="playerIdsInput">
+<label for="playerIdsInput" class="cursor-pointer">
+<div class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-lg mx-auto mb-4">
+<i class="ri-file-upload-line text-gray-500 text-xl"></i>
+</div>
+<p class="text-gray-600">Upload ID documents for all players</p>
+<p class="text-xs text-gray-500 mt-2">PDF, JPG, PNG (Max 5MB each)</p>
+</label>
+</div>
+<div id="playerIdsPreviewContainer" class="hidden mt-4 space-y-2">
+</div>
+</div>
+<div class="flex justify-between mt-8">
+<button type="button" id="backToPlayers" class="px-6 py-3 border border-gray-300 text-gray-700 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+Back
+</button>
+<button type="button" id="nextToPayment" class="px-8 py-3 bg-primary hover:bg-orange-600 text-white !rounded-button transition-colors whitespace-nowrap">
+Continue to Payment
+</button>
+</div>
+</div>
+</div>
+<!-- Payment Step -->
+<div id="step4" class="registration-step hidden">
+<h3 class="text-xl font-bold mb-6">Payment Details</h3>
+<div class="space-y-6">
+<div class="bg-gray-50 p-6 rounded-lg">
+<h4 class="font-semibold mb-4">Registration Fee</h4>
+<div class="flex justify-between items-center mb-4">
+<span>Team Registration</span>
+<span class="font-bold">₹50</span>
+</div>
+<div class="border-t border-gray-200 pt-4">
+<div class="flex justify-between items-center">
+<span class="font-semibold">Total Amount</span>
+<span class="font-bold text-primary">₹50</span>
+</div>
+</div>
+</div>
+<div class="text-center">
+<div class="inline-block bg-white p-6 rounded-lg shadow-lg">
+<div class="w-48 h-48 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center">
+<img src="https://i.postimg.cc/P5T4vssv/image.png" alt="Payment QR Code" class="w-full h-full object-contain"></div>
+<p class="text-sm text-gray-600 mb-2">Scan QR code to complete payment</p>
+<div class="flex justify-center space-x-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-wechat-pay-fill text-green-500 text-2xl"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-alipay-fill text-blue-500 text-2xl"></i>
+</div>
+</div>
+</div>
+</div>
+<div>
+<P class="font-semibold mb-4">make payment if you don't complete payment then your submit registration cancel</p>
+
+</div>
+
+<div class="flex justify-between mt-8">
+<button type="button" id="backToDocuments" class="px-6 py-3 border border-gray-300 text-gray-700 !rounded-button hover:bg-gray-50 transition-colors whitespace-nowrap">
+Back
+</button>
+<button type="submit" class="px-8 py-3 bg-primary hover:bg-orange-600 text-white !rounded-button transition-colors whitespace-nowrap">
+Complete Registration
+</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Statistics & Highlights -->
+<div class="space-y-6">
+<div class="bg-white rounded-xl shadow-lg p-6">
+<h3 class="text-lg font-bold mb-4">Tournament Stats</h3>
+<div class="space-y-4">
+<div class="flex justify-between">
+<span class="text-gray-600">Total Teams</span>
+<span class="font-bold">10</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Matches Played</span>
+<span class="font-bold">3</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Prize Pool</span>
+<span class="font-bold text-primary">₹300</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-6">
+<h3 class="text-lg font-bold mb-4">Top Performers</h3>
+<div class="space-y-3">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+<span class="text-white font-bold text-sm">1</span>
+</div>
+<div>
+<div class="font-semibold">Manjay singh</div>
+<div class="text-sm text-gray-500">177 Kills</div>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
+<span class="text-white font-bold text-sm">2</span>
+</div>
+<div>
+<div class="font-semibold">PhoenixKing</div>
+<div class="text-sm text-gray-500">118 Kills</div>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center">
+<span class="text-white font-bold text-sm">3</span>
+</div>
+<div>
+<div class="font-semibold">ThunderStrike</div>
+<div class="text-sm text-gray-500">103 Kills</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-6">
+<h3 class="text-lg font-bold mb-4">Alert Settings</h3>
+<div class="space-y-3">
+<label class="flex items-center space-x-3">
+<input type="checkbox" checked class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+<span class="text-sm">Match Results</span>
+</label>
+<label class="flex items-center space-x-3">
+<input type="checkbox" checked class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+<span class="text-sm">Schedule Changes</span>
+</label>
+<label class="flex items-center space-x-3">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+<span class="text-sm">Team Updates</span>
+</label>
+<label class="flex items-center space-x-3">
+<input type="checkbox" checked class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+<span class="text-sm">Live Match Alerts</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-secondary text-white py-16">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<!-- About & Contact -->
+<div>
+<h3 class="text-lg font-bold mb-6">About Tournament</h3>
+<div class="space-y-4">
+<a href="#" class="block text-gray-300 hover:text-white transition-colors">About Championship</a>
+<a href="#" class="block text-gray-300 hover:text-white transition-colors">Contact Support</a>
+<a href="#" class="block text-gray-300 hover:text-white transition-colors">FAQ</a>
+<a href="#" class="block text-gray-300 hover:text-white transition-colors">Help Center</a>
+</div>
+</div>
+<!-- Legal Information -->
+<div>
+<h3 class="text-lg font-bold mb-6">Legal</h3>
+<div class="space-y-4">
+<a href="#" class="block text-gray-300 hover:text-white transition-colors">Terms of Service</a>
+<a href="#" class="block text-gray-300 hover:text-white transition-colors">Privacy Policy</a>
+<a href="#" class="block text-gray-300 hover:text-white transition-colors">Tournament Rules</a>
+<a href="#" class="block text-gray-300 hover:text-white transition-colors">Buykart shopping app(comming)</a>
+</div> 
+</div>
+<!-- Social Links -->
+<div>
+<h3 class="text-lg font-bold mb-6">Community</h3>
+<div class="space-y-4">
+<a href="#" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-discord-fill"></i>
+</div>
+<span>Discord Server</span>
+</a>
+<a href="#" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-twitter-fill"></i>
+</div>
+<span>Twitter Updates</span>
+</a>
+<a href="#" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-youtube-fill"></i>
+</div>
+<span>YouTube Channel</span>
+</a>
+<a href="#" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+<span>Facebook Page</span>
+</a>
+</div>
+</div>
+<!-- Newsletter -->
+<div>
+<h3 class="text-lg font-bold mb-6">Stay Updated</h3>
+<p class="text-gray-300 mb-4">Get the latest tournament news and updates</p>
+<div class="space-y-3">
+<input type="email" placeholder="Enter your email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent">
+<button class="w-full bg-primary hover:bg-orange-600 text-white py-2 !rounded-button transition-colors whitespace-nowrap">
+Subscribe
+</button>
+</div>
+<div class="mt-4 space-y-2">
+<label class="flex items-center space-x-2">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-600 bg-gray-700 rounded focus:ring-primary">
+<span class="text-sm text-gray-300">Tournament updates</span>
+</label>
+<label class="flex items-center space-x-2">
+<input type="checkbox" class="w-4 h-4 text-primary border-gray-600 bg-gray-700 rounded focus:ring-primary">
+<span class="text-sm text-gray-300">Match notifications</span>
+</label>
+</div>
+</div>
+</div>
+
+<!-- Copyright -->
+<div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+<p>&copy; 2025 Free Fire Max Championship. All rights reserved.</p>
+<p class="mt-2">Powered by Ms11 Tournament Platform</p>
+<p class="mt-2">Design by Ms11 for make website contact:- ms11company9@gmail.com</p>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="countdown-timer">
+document.addEventListener('DOMContentLoaded', function() {
+function updateCountdown() {
+const targetDate = new Date('2025-03-08T23:59:59').getTime();
+const now = new Date().getTime();
+const distance = targetDate - now;
+if (distance > 0) {
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+const digits = document.querySelectorAll('.countdown-digit');
+if (digits.length >= 4) {
+digits[0].querySelector('.text-3xl').textContent = days.toString().padStart(2, '0');
+digits[1].querySelector('.text-3xl').textContent = hours.toString().padStart(2, '0');
+digits[2].querySelector('.text-3xl').textContent = minutes.toString().padStart(2, '0');
+digits[3].querySelector('.text-3xl').textContent = seconds.toString().padStart(2, '0');
+}
+}
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+});
+</script>
+<Script>const viewportMeta = document.querySelector('meta[name="viewport"]');
+viewportMeta.setAttribute('content', 'width=1024');</script>
+<script id="dropdown-navigation">
+document.addEventListener('DOMContentLoaded', function() {
+const dropdowns = document.querySelectorAll('.group');
+dropdowns.forEach(dropdown => {
+const button = dropdown.querySelector('button');
+const menu = dropdown.querySelector('.absolute');
+if (button && menu) {
+let timeout;
+dropdown.addEventListener('mouseenter', () => {
+clearTimeout(timeout);
+menu.classList.remove('opacity-0', 'invisible');
+menu.classList.add('opacity-100', 'visible');
+});
+dropdown.addEventListener('mouseleave', () => {
+timeout = setTimeout(() => {
+menu.classList.remove('opacity-100', 'visible');
+menu.classList.add('opacity-0', 'invisible');
+}, 150);
+});
+}
+});
+});
+</script>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+(function(){
+   emailjs.init("vkAb21y_fBOJQcuq6"); // <-- Apna Public Key yaha daalein
+})();
+</script>
+
+<script id="form-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const registrationSteps = document.querySelectorAll('.registration-step');
+
+// Player IDs Upload Preview
+const playerIdsInput = document.getElementById('playerIdsInput');
+const playerIdsPreviewContainer = document.getElementById('playerIdsPreviewContainer');
+playerIdsInput.addEventListener('change', function(e) {
+playerIdsPreviewContainer.innerHTML = '';
+Array.from(e.target.files).forEach((file, index) => {
+const previewElement = document.createElement('div');
+previewElement.className = 'flex items-center space-x-4 bg-gray-50 p-3 rounded-lg';
+previewElement.innerHTML = `
+<div class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
+<i class="ri-file-text-line text-gray-500"></i>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium">${file.name}</p>
+<p class="text-xs text-gray-500">${formatFileSize(file.size)}</p>
+</div>
+<button type="button" onclick="removePlayerIdFile(${index})" class="text-red-500 hover:text-red-600">
+<i class="ri-delete-bin-line"></i>
+</button>
+`;
+playerIdsPreviewContainer.appendChild(previewElement);
+});
+playerIdsPreviewContainer.classList.remove('hidden');
+});
+window.removePlayerIdFile = function(index) {
+const dt = new DataTransfer();
+const files = playerIdsInput.files;
+for (let i = 0; i < files.length; i++) {
+if (i !== index) {
+dt.items.add(files[i]);
+}
+}
+playerIdsInput.files = dt.files;
+if (playerIdsInput.files.length === 0) {
+playerIdsPreviewContainer.classList.add('hidden');
+} else {
+const previewElements = playerIdsPreviewContainer.children;
+if (previewElements[index]) {
+previewElements[index].remove();
+}
+}
+};
+function formatFileSize(bytes) {
+if (bytes === 0) return '0 Bytes';
+const k = 1024;
+const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+const i = Math.floor(Math.log(bytes) / Math.log(k));
+return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+function handleFileUpload(input, previewId) {
+const file = input.files[0];
+if (!file) return;
+const preview = document.getElementById(previewId);
+const img = preview.querySelector('img');
+const fileName = preview.querySelector('.file-name');
+const fileSize = preview.querySelector('.file-size');
+const reader = new FileReader();
+reader.onload = function(e) {
+img.src = e.target.result;
+fileName.textContent = file.name;
+fileSize.textContent = formatFileSize(file.size);
+preview.classList.remove('hidden');
+};
+reader.readAsDataURL(file);
+}
+function removeFile(inputId) {
+const input = document.getElementById(inputId + 'Input');
+const preview = document.getElementById(inputId + 'Preview');
+input.value = '';
+preview.classList.add('hidden');
+}
+document.getElementById('teamLogoInput').addEventListener('change', function() {
+handleFileUpload(this, 'teamLogoPreview');
+});
+function showProgressPage() {
+const progressPage = document.createElement('div');
+progressPage.className = 'fixed inset-0 bg-white z-50 flex items-center justify-center';
+progressPage.innerHTML = `
+<div class="text-center">
+<div class="w-24 h-24 mb-8 mx-auto">
+<svg class="animate-spin" viewBox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+</svg>
+</div>
+<h3 class="text-2xl font-bold mb-4">Processing Your Registration</h3>
+<p class="text-gray-600">Please wait while we confirm your payment and complete the registration...</p>
+</div>
+`;
+document.body.appendChild(progressPage);
+setTimeout(() => {
+progressPage.remove();
+showSuccessPage();
+}, 3000);
+}
+function addRecentRegistration(teamName, gameMode, registrationId) {
+const recentTeamsContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3.gap-6');
+if (recentTeamsContainer) {
+const gradients = [
+'from-purple-500 to-indigo-600',
+'from-green-500 to-teal-600',
+'from-red-500 to-pink-600',
+'from-blue-500 to-cyan-600'
+];
+const gradient = gradients[Math.floor(Math.random() * gradients.length)];
+const newTeam = document.createElement('div');
+newTeam.className = 'bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform';
+newTeam.innerHTML = `
+<div class="flex items-center space-x-4 mb-4">
+<div class="w-16 h-16 bg-gradient-to-br ${gradient} rounded-lg flex items-center justify-center">
+<i class="ri-team-line text-white text-2xl"></i>
+</div>
+<div>
+<h3 class="font-bold text-lg">${teamName}</h3>
+<span class="text-sm text-gray-500">Registered just now</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center space-x-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-gamepad-line text-primary"></i>
+</div>
+<span class="text-gray-600">${gameMode} Mode</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-group-line text-primary"></i>
+</div>
+<span class="text-gray-600">4 Players</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<span class="text-gray-600">Global Server</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t">
+<div class="flex items-center justify-between">
+<span class="text-sm text-gray-500">Registration ID</span>
+<span class="text-sm font-medium">${registrationId}</span>
+</div>
+</div>
+`;
+if (recentTeamsContainer.children.length >= 3) {
+recentTeamsContainer.removeChild(recentTeamsContainer.lastChild);
+}
+recentTeamsContainer.insertBefore(newTeam, recentTeamsContainer.firstChild);
+}
+}
+function showSuccessPage() {
+const registrationId = '#FFM2025-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+const teamName = document.querySelector('input[name="teamName"]').value;
+const gameMode = document.querySelector('input[name="gameMode"]:checked').value;
+const gameModeMap = {
+'br': 'Battle Royale',
+'cs': 'Clash Squad',
+'bermuda': 'Bermuda Triangle',
+'custom': 'Custom Room'
+};
+addRecentRegistration(teamName, gameModeMap[gameMode], registrationId);
+const successPage = document.createElement('div');
+successPage.className = 'fixed inset-0 bg-white z-50 flex items-center justify-center';
+successPage.innerHTML = `
+<div class="text-center max-w-lg mx-auto px-4">
+<div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
+<i class="ri-check-line text-green-500 text-5xl"></i>
+</div>
+<h3 class="text-3xl font-bold text-gray-900 mb-4">Registration Successful!</h3>
+<p class="text-gray-600 mb-8">Your team has been successfully registered for the Free Fire Max Championship. Check your email for confirmation details.</p>
+<div class="space-y-4">
+<div class="bg-gray-50 rounded-lg p-4">
+<p class="text-sm text-gray-600">Registration ID</p>
+<p class="text-lg font-semibold text-gray-900">#FFM2025-${Math.random().toString(36).substr(2, 9).toUpperCase()}</p>
+</div>
+<button onclick="window.location.href='/'" class="w-full bg-primary hover:bg-orange-600 text-white py-3 !rounded-button transition-colors">
+Return to Homepage
+</button>
+</div>
+</div>
+`;
+document.body.appendChild(successPage);
+}
+const nextToPlayers = document.getElementById('nextToPlayers');
+const nextToPayment = document.getElementById('nextToPayment');
+const backToTeam = document.getElementById('backToTeam');
+const backToPlayers = document.getElementById('backToPlayers');
+const backToDocuments = document.getElementById('backToDocuments');
+const cardPaymentForm = document.getElementById('cardPaymentForm');
+const registrationForm = document.getElementById('registrationForm');
+function showStep(stepNumber) {
+registrationSteps.forEach((step, index) => {
+step.classList.toggle('hidden', index + 1 !== stepNumber);
+});
+// Update step indicators
+for (let i = 1; i <= 4; i++) {
+const indicator = document.getElementById(`step${i}Indicator`);
+if (i === stepNumber) {
+indicator.classList.remove('bg-gray-100');
+indicator.classList.add('bg-primary', 'bg-opacity-10');
+indicator.querySelector('.w-8').classList.remove('bg-gray-400');
+indicator.querySelector('.w-8').classList.add('bg-primary');
+indicator.querySelector('span:last-child').classList.remove('text-gray-600');
+indicator.querySelector('span:last-child').classList.add('text-primary', 'font-semibold');
+} else if (i < stepNumber) {
+indicator.classList.remove('bg-gray-100');
+indicator.classList.add('bg-green-50');
+indicator.querySelector('.w-8').classList.remove('bg-gray-400');
+indicator.querySelector('.w-8').classList.add('bg-green-500');
+indicator.querySelector('span:last-child').classList.remove('text-gray-600');
+indicator.querySelector('span:last-child').classList.add('text-green-600');
+} else {
+indicator.classList.remove('bg-primary', 'bg-opacity-10', 'bg-green-50');
+indicator.classList.add('bg-gray-100');
+indicator.querySelector('.w-8').classList.remove('bg-primary', 'bg-green-500');
+indicator.querySelector('.w-8').classList.add('bg-gray-400');
+indicator.querySelector('span:last-child').classList.remove('text-primary', 'text-green-600', 'font-semibold');
+indicator.querySelector('span:last-child').classList.add('text-gray-600');
+}
+}
+}
+nextToPlayers.addEventListener('click', () => {
+const teamName = document.querySelector('input[name="teamName"]').value;
+const selectedMode = document.querySelector('input[name="gameMode"]:checked');
+if (!teamName) {
+showError('Please enter team name');
+return;
+}
+if (!selectedMode) {
+showError('Please select a game mode');
+return;
+}
+showStep(2);
+});
+
+
+backToTeam.addEventListener('click', () => showStep(1));
+backToPlayers.addEventListener('click', () => showStep(2));
+backToDocuments.addEventListener('click', () => showStep(3));
+document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+radio.addEventListener('change', (e) => {
+cardPaymentForm.classList.toggle('hidden', e.target.value !== 'card');
+});
+});
+registrationForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // EmailJS through email send
+    emailjs.sendForm('service_ff', 'template_xpgbwk7', this) // First: Service ID, Second: Template ID
+    .then(function() {
+        alert('Form submit ho gaya, email bhej diya gaya!');
+        showProgressPage(); // Old function to show progress
+    }, function(error) {
+        alert('Email bhejne me problem aayi: ' + JSON.stringify(error));
+    });
+});
+function showError(message) {
+const errorDiv = document.createElement('div');
+errorDiv.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+errorDiv.textContent = message;
+document.body.appendChild(errorDiv);
+setTimeout(() => errorDiv.remove(), 3000);
+}
+function showSuccess(message) {
+const successDiv = document.createElement('div');
+successDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+successDiv.textContent = message;
+document.body.appendChild(successDiv);
+setTimeout(() => successDiv.remove(), 3000);
+}
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+if (this.checked) {
+this.classList.add('bg-primary', 'border-primary');
+} else {
+this.classList.remove('bg-primary', 'border-primary');
+}
+});
+});
+const fileUpload = document.querySelector('.border-dashed');
+if (fileUpload) {
+fileUpload.addEventListener('dragover', function(e) {
+e.preventDefault();
+this.classList.add('border-primary', 'bg-primary', 'bg-opacity-5');
+});
+fileUpload.addEventListener('dragleave', function(e) {
+e.preventDefault();
+this.classList.remove('border-primary', 'bg-primary', 'bg-opacity-5');
+});
+fileUpload.addEventListener('drop', function(e) {
+e.preventDefault();
+this.classList.remove('border-primary', 'bg-primary', 'bg-opacity-5');
+});
+}
+});
+</script>
+<script id="bracket-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const bracketCards = document.querySelectorAll('.bracket-card');
+bracketCards.forEach(card => {
+card.addEventListener('click', function() {
+const matchInfo = this.querySelector('.text-sm').textContent;
+const teams = this.querySelectorAll('.flex.items-center.justify-between');
+if (teams.length >= 2) {
+const team1 = teams[0].querySelector('span').textContent;
+const team2 = teams[1].querySelector('span').textContent;
+const score1 = teams[0].querySelector('.font-bold').textContent;
+const score2 = teams[1].querySelector('.font-bold').textContent;
+alert(`Match Details:\n${matchInfo}\n\n${team1}: ${score1}\n${team2}: ${score2}`);
+}
+});
+});
+});
+</script><script>
+document.addEventListener('DOMContentLoaded', () => {
+        const nextButton = document.getElementById('nextToPayment');
+        const step2 = document.getElementById('step2');
+        const step4 = document.getElementById('step4');
+
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                if (step2) {
+                    step2.classList.add('hidden');
+                }
+                if (step4) {
+                    step4.classList.remove('hidden');
+                }
+            });
+        }
+    });
+    </script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const nextButton = document.getElementById('nextToPayment');
+    const backButton = document.getElementById('backToDocuments'); // Get the back button
+    const step2 = document.getElementById('step2');
+    const step4 = document.getElementById('step4');
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            if (step2) {
+                step2.classList.add('hidden');
+            }
+            if (step4) {
+                step4.classList.remove('hidden');
+            }
+        });
+    }
+
+    if (backButton) { // Add listener for the back button
+        backButton.addEventListener('click', () => {
+            if (step2) {
+                step2.classList.remove('hidden'); // Show step2
+            }
+            if (step4) {
+                step4.classList.add('hidden'); // Hide step4
+            }
+        });
+    }
+});</script>
+
+<script>
+  // Initialize EmailJS
+  (function(){
+    emailjs.init("vkAb21y_fBOJQcuq6"); // apna EmailJS public key yaha daalein
+  })();
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const registrationForm = document.getElementById('registrationForm');
+    if (!registrationForm) return;
+
+    registrationForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Simple validation
+      const teamName = (this.querySelector('input[name="teamName"]') || {}).value || '';
+      const checkedMode = document.querySelector('input[name="gameMode"]:checked');
+      if (!teamName) return alert('Please enter team name');
+      if (!checkedMode) return alert('Please select a game mode');
+      if (!document.getElementById('terms').checked) return alert('Please accept Terms and Conditions');
+
+      // Generate ID & get email
+      const registrationId = '#FFM2025-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+      const contactEmail = document.querySelector('#registrationForm input[type="email"]')?.value || '';
+
+      // Prepare EmailJS params
+  const templateParams = {
+
+  teamUID: document.querySelector('[name="teamUID"]')?.value || '',
+  teamName: document.querySelector('[name="teamName"]')?.value || '',
+  captain: document.querySelector('[name="captain"]')?.value || '',
+  gameMode: document.querySelector('[name="gameMode"]:checked')?.value || '',
+  contactEmail: document.querySelector('[name="contactEmail"]')?.value || '',
+  phone: document.querySelector('[name="phone"]')?.value || '',
+  teamDescription: document.querySelector('[name="teamDescription"]')?.value || '',
+  player1: document.querySelector('[name="player1"]')?.value || '',
+  player1Role: document.querySelector('[name="player1Role"]')?.value || '',
+  player2: document.querySelector('[name="player2"]')?.value || '',
+  player2Role: document.querySelector('[name="player2Role"]')?.value || '',
+  player3: document.querySelector('[name="player3"]')?.value || '',
+  player3Role: document.querySelector('[name="player3Role"]')?.value || '',
+  player4: document.querySelector('[name="player4"]')?.value || '',
+  player4Role: document.querySelector('[name="player4Role"]')?.value || '',
+  name: document.querySelector('[name="name"]')?.value || '',
+  email: document.querySelector('[name="email"]')?.value || '',
+  message: "New tournament registration"
+};
+
+
+
+      // Send email first
+      emailjs.send('service_ff', 'template_xpgbwk7', templateParams)
+      .then(function() {
+        showSuccessPopup(registrationId, teamName);
+      })
+      .catch(function() {
+        alert("Email sending failed, but registration completed.");
+        showSuccessPopup(registrationId, teamName);
+      });
+    });
+  });
+
+  // Success Popup
+  function showSuccessPopup(registrationId, teamName) {
+    const popup = document.createElement('div');
+    popup.className = 'fixed inset-0 bg-white z-50 flex items-center justify-center';
+    popup.innerHTML = `
+      <div class="text-center max-w-lg mx-auto px-4">
+        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
+          <i class="ri-check-line text-green-500 text-5xl"></i>
+        </div>
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Registration Successful!</h3>
+        <p class="text-gray-600 mb-4">Your team <strong>${escapeHtml(teamName)}</strong> has been successfully registered.</p>
+        <div class="bg-gray-50 rounded-lg p-4 mb-6">
+          <p class="text-sm text-gray-600">Registration ID</p>
+          <p class="text-lg font-semibold text-gray-900">${escapeHtml(registrationId)}</p>
+        </div>
+        <button id="goHomeBtn" class="w-full bg-primary hover:bg-orange-600 text-white py-3 rounded transition-colors">Go to Homepage</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+
+    document.getElementById('goHomeBtn').addEventListener('click', function() {
+      window.location.href = '/'; // home page
+    });
+  }
+
+  function escapeHtml(str) {
+    return str?.replace(/[&<>"'`=\/]/g, s => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+      '`': '&#x60;', '=': '&#x3D;', '/': '&#x2F;'
+    }[s]));
+  }
+</script>
+
+
+<!-- Robust EmailJS + registration handler -->
+<script>
+(function(){
+  try{
+    if(window.emailjs && emailjs.init){
+      emailjs.init("vkAb21y_fBOJQcuq6"); // replace with your key
+    }
+  }catch(e){
+    console.warn('EmailJS init error', e);
+  }
+
+  function escapeHtml(str){ if(!str) return ''; return String(str).replace(/[&<>"'`=\/]/g, function(s){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#x60;','/':'&#x2F;'}[s]; }); }
+
+  function showSuccessPopup(registrationId, teamName){
+    // remove any existing popup
+    var existing = document.getElementById('registration-success-popup');
+    if(existing) existing.remove();
+
+    var popup = document.createElement('div');
+    popup.id = 'registration-success-popup';
+    popup.className = 'fixed inset-0 bg-white z-50 flex items-center justify-center';
+    popup.style.padding = '20px';
+    popup.innerHTML = '\
+      <div class="text-center max-w-lg mx-auto px-4">\
+        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">\
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>\
+        </div>\
+        <h3 style="font-size:24px; font-weight:700; margin-bottom:8px; color:#111">Registration Successful!</h3>\
+        <p style="color:#555; margin-bottom:12px">Your team <strong>' + escapeHtml(teamName) + '</strong> has been successfully registered.</p>\
+        <div style="background:#f7fafc; border-radius:8px; padding:12px; margin-bottom:12px">\
+          <p style="font-size:12px; color:#666; margin:0">Registration ID</p>\
+          <p style="font-size:16px; font-weight:600; margin:0; color:#111">' + escapeHtml(registrationId) + '</p>\
+        </div>\
+        <button id="goHomeBtn" style="width:100%; background:#2563eb; color:#fff; padding:10px 12px; border-radius:8px; border:0; font-weight:600; cursor:pointer">Go to Homepage</button>\
+      </div>';
+
+    document.body.appendChild(popup);
+
+    document.getElementById('goHomeBtn').addEventListener('click', function(){
+      // Navigate to home and force a fresh load by adding a timestamp query param
+      window.location.href = '/' + '?r=' + Date.now();
+    });
+  }
+
+  function handleRegistration(e, externalForm){
+    if(e && typeof e.preventDefault === 'function') e.preventDefault();
+
+    var form = externalForm || (e && e.target && e.target.closest && e.target.closest('form')) || document.getElementById('registrationForm');
+    if(!form){
+      console.error('Registration form not found.');
+      return;
+    }
+
+    // fetch values
+    var teamName = (form.querySelector('input[name="teamName"]') && form.querySelector('input[name="teamName"]').value.trim()) || '';
+    var checkedMode = form.querySelector('input[name="gameMode"]:checked');
+    var termsCheckbox = form.querySelector('#terms');
+    if(!teamName){ alert('Please enter team name'); return; }
+    if(!checkedMode){ alert('Please select a game mode'); return; }
+    if(termsCheckbox && !termsCheckbox.checked){ alert('Please accept Terms and Conditions'); return; }
+
+    var registrationId = '#FFM2025-' + Math.random().toString(36).substr(2,9).toUpperCase();
+    var contactEmail = (form.querySelector('input[type="email"]') && form.querySelector('input[type="email"]').value.trim()) || '';
+
+    var templateParams = {
+  teamUID: document.querySelector('[name="teamUID"]')?.value || '',
+ teamName: document.querySelector('[name="teamName"]')?.value || '',
+  captain: document.querySelector('[name="captain"]')?.value || '',
+  gameMode: document.querySelector('[name="gameMode"]:checked')?.value || '',
+  contactEmail: document.querySelector('[name="contactEmail"]')?.value || '',
+  phone: document.querySelector('[name="phone"]')?.value || '',
+  teamDescription: document.querySelector('[name="teamDescription"]')?.value || '',
+  player1: document.querySelector('[name="player1"]')?.value || '',
+  player1Role: document.querySelector('[name="player1Role"]')?.value || '',
+  player2: document.querySelector('[name="player2"]')?.value || '',
+  player2Role: document.querySelector('[name="player2Role"]')?.value || '',
+  player3: document.querySelector('[name="player3"]')?.value || '',
+  player3Role: document.querySelector('[name="player3Role"]')?.value || '',
+  player4: document.querySelector('[name="player4"]')?.value || '',
+  player4Role: document.querySelector('[name="player4Role"]')?.value || '',
+  name: document.querySelector('[name="name"]')?.value || '',
+  email: document.querySelector('[name="email"]')?.value || '',
+  message: "New tournament registration"
+    };
+
+    // If EmailJS available, send email first, then show popup.
+    if(window.emailjs && typeof emailjs.send === 'function'){
+      try{
+        emailjs.send('service_ff', 'template_xpgbwk7', templateParams)
+        .then(function(resp){
+          console.log('EmailJS sent', resp);
+          showSuccessPopup(registrationId, teamName);
+        }).catch(function(err){
+          console.warn('EmailJS failed', err);
+          // show popup anyway
+          showSuccessPopup(registrationId, teamName);
+          // optional alert
+          setTimeout(function(){ alert('Email sending failed, but registration completed.'); }, 20);
+        });
+      }catch(err){
+        console.warn('EmailJS send error', err);
+        showSuccessPopup(registrationId, teamName);
+      }
+    }else{
+      // EmailJS not loaded — still show popup so UX is preserved
+      showSuccessPopup(registrationId, teamName);
+    }
+  }
+
+  // Attach handlers: form submit + clicks on submit buttons (covers buttons outside the form)
+  document.addEventListener('DOMContentLoaded', function(){
+    var regForm = document.getElementById('registrationForm');
+    if(regForm){
+      regForm.addEventListener('submit', handleRegistration);
+    }
+
+    // capture clicks on submit buttons and ensure handler runs even if button is outside the form
+    document.addEventListener('click', function(ev){
+      var btn = ev.target.closest && ev.target.closest('button[type="submit"]');
+      if(!btn) return;
+      // if button belongs to registrationForm via form attribute or because it's inside that form, let the submit event handle it.
+      var btnForm = btn.form;
+      var targetForm = btnForm || document.getElementById(btn.getAttribute('form')) || document.getElementById('registrationForm');
+      if(targetForm && targetForm.id !== 'registrationForm'){
+        // if button targets some other form, ignore
+        return;
+      }
+      // prevent default and run handler with the registration form
+      ev.preventDefault();
+      handleRegistration(ev, document.getElementById('registrationForm'));
+    }, true);
+  });
+})();
+</script>
+<!-- End robust EmailJS handler -->
+
+</body>
+</html>
